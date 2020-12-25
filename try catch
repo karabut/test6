@@ -1,54 +1,58 @@
 
 class A{
+private:
+    static int pek;
+    string info;
 public:
-char letter = 'A';
+    int getInstance(){
+        return A::pek++;
+    }
+    A(){
+        info = to_string(pek++);
+    }
+    string getInfo(){
+        return info;
+    }
 
-int iterator;
-A(){
-iterator = value -'A';
-}
 };
 
-class B: public A{
-public:
-char letter = 'B';
+int A::pek = 0;
 
-B(){
-iterator = value -'A';
-}
+class B: public A{
+private:
+    string info;
+public:
+    B(){
+        info = to_string(getInstance());
+    }
+
 };
 
 class C: public B{
+private:
+    string info;
 public:
-char letter = 'C';
-C(){
-iterator = value -'A';
-}
+    C(){
+        info = to_string(getInstance());
+    }
 };
 
+void test(){
+    try {
+         A a;
+         throw a;
 
-try{
-A a;
-throw a;
-}
-catch (A a){
-std:: cout « a.value « " - " « a.iterator « '\n';
-}
+    }
+    catch (C pek) {
+        cout << "C";
 
-try{
-B b;
-throw b;
-}
-catch (B b){
-std:: cout « b.value « " - " « b.iterator « '\n';
-}
+    }
+    catch (B pek) {
+        cout << "B";
 
-try{
-C c;
-throw c;
-}
-catch (C c){
-std:: cout « c.value « " - " « c.iterator « '\n';
-}
+    }
+    catch (A pek) {
+        cout << "A";
 
+    }
 }
