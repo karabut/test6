@@ -1,0 +1,54 @@
+
+class A{
+public:
+char letter = 'A';
+
+int iterator;
+A(){
+iterator = value -'A';
+}
+};
+
+class B: public A{
+public:
+char letter = 'B';
+
+B(){
+iterator = value -'A';
+}
+};
+
+class C: public B{
+public:
+char letter = 'C';
+C(){
+iterator = value -'A';
+}
+};
+
+
+try{
+A a;
+throw a;
+}
+catch (A a){
+std:: cout « a.value « " - " « a.iterator « '\n';
+}
+
+try{
+B b;
+throw b;
+}
+catch (B b){
+std:: cout « b.value « " - " « b.iterator « '\n';
+}
+
+try{
+C c;
+throw c;
+}
+catch (C c){
+std:: cout « c.value « " - " « c.iterator « '\n';
+}
+
+}
